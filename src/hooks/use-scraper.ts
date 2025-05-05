@@ -1,10 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 
-interface ScrapeOptions {
-  userName: string;
-  endTime: number;
-}
-
 // Helper function to create a delay
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -13,7 +8,8 @@ export function useScraper() {
   const [isRunning, setIsRunning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [totalLogs, setTotalLogs] = useState(0);
-  const [endTimestamp, setEndTimestamp] = useState(Math.floor(Date.now() / 1000));
+  /* tslint:disable:no-unused-variable */
+  const [_endTimestamp, setEndTimestamp] = useState(Math.floor(Date.now() / 1000));
   const [userName, setUserName] = useState("");
   
   // Use ref to store the current log array to avoid closure issues
@@ -112,7 +108,7 @@ export function useScraper() {
         // Recursive call with next search parameter
         searchReq(userName, currDate, next);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Fetch error:", error);
       
       // Add error log
@@ -149,7 +145,6 @@ export function useScraper() {
     logs,
     isRunning,
     progress,
-    totalLogs,
     startScraping,
     downloadLogs,
     resetTimestamp

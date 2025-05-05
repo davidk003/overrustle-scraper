@@ -23,7 +23,6 @@ export default function LogScraper() {
     logs,
     progress,
     isRunning,
-    totalLogs,
     startScraping,
     downloadLogs,
     resetTimestamp
