@@ -1,43 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Scrape overrustle logs</title>
-  <meta name="viewport" content="width=devic5e-width,initial-scale=1" />
-  <meta name="description" content="" />
-  <!-- <link rel="icon" href="favicon.png"> -->
-  <script src="index.js"></script>
-</head>
-<body>
-  <h1>Scrape your overrustle logs</h1>
-
-  <label for="name">Username to scrape: </label>
-  <input type="text" id="name" name="name"/>
-  <button onclick="runScraperScript()">Scrape!</button>
-    <br>
-  <label for="endScrapeTime">Ending timestamp:</label>
-  <input type="number" id="endScrapeTime" name="endScrapeTime" step="86400">
-  <label for="endScrapeTime" id="convertedEndTime"></label>
-
-  <button onclick="resetDate()"> Reset </button>
-
-
-  <script>
-        let endScrapeTime = document.getElementById("endScrapeTime")
-        endScrapeTime.value = (new Date()).valueOf()/1000;
-        document.getElementById("convertedEndTime").textContent = new Date(endScrapeTime.value*1000).toISOString()
-
-        endScrapeTime.addEventListener("input", () => {
-            // console.log(endScrapeTime.value)
-            document.getElementById("convertedEndTime").textContent = new Date(endScrapeTime.value*1000).toISOString()
-        })
-
-        function resetDate()
-        {
-            endScrapeTime.value = (new Date()).valueOf()/1000;
-            document.getElementById("convertedEndTime").textContent = new Date(endScrapeTime.value*1000).toISOString()
-
-        }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overrustle Log Scraper</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
